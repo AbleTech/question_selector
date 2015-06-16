@@ -1,0 +1,28 @@
+{
+  "name": "question_selector",
+  "version": "0.0.1",
+  "authors": [
+    "Dawn Richardson <dawn.richardson@abletech.co.nz>"
+  ],
+  "description": "A javascript plugin to read a JSON file and guide a user through a number of questions & answers to get a result",
+  "main": "index.js",
+  "keywords": [
+    "javascript",
+    "plugin",
+    "wizard",
+    "question",
+    "steps"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Kiwibank/question_selector",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

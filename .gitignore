@@ -1,0 +1,2 @@
+# Don't check in bower dependencies. Running bower install will fetch these in consuming app
+bower_components
