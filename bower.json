@@ -5,7 +5,10 @@
     "Dawn Richardson <dawn.richardson@abletech.co.nz>"
   ],
   "description": "A javascript plugin to read a JSON file and guide a user through a number of questions & answers to get a result",
-  "main": "question_selector.js",
+  "main": [
+    "question_selector.js",
+    "question_selector.scss"
+  ],
   "keywords": [
     "javascript",
     "plugin",
