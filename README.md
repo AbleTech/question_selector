@@ -49,7 +49,6 @@ You can then bind to the selector's events, access the results and use them as r
 ```
 
 #####Available Events:
-- `selector:started`: triggered when the selector has been setup and displayed the first question.
 - `selector:changed`: triggered everytime a user clicks on an answer.
 - `selector:completed`: triggered when the user has selecter a answer which has a result.
 

@@ -73,7 +73,5 @@
 
     container.html(self.element);
     createQuestion(data, 0);
-    self.element.trigger('selector:started');
-
   }
 }());
