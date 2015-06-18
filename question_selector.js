@@ -1,8 +1,31 @@
 (function() {
 
-  this.QuestionSelector = function(jsonConfig, container) {
+  this.QuestionSelector = function(jsonConfig, trigger, options) {
+    this.result = null;
+    this.alternatives = null;
+    this.element = $("<form id='question_selector'>")
 
-    container.click(function(e){
+    if (typeof(options)==='undefined') options = {};
+
+    var self = this;
+    var container = options.container;
+
+    if(typeof container === 'undefined'){
+      // Default container to 'main' element if there is one,
+      // otherwise attach to body
+      if($('main').length > 0){
+        container = $('main');
+      }else {
+        container = $('body');
+      }
+    }
+
+    //Wrap class events around main element events
+    this.on = function(eventName, fn){
+      self.element.on(eventName, fn);
+    }
+
+    trigger.click(function(e){
 
       var createQuestion = function(data, index){
         questionId = "question_"+index;
@@ -33,21 +56,26 @@
           }
 
           if('result' in answerData){
-            $("#question_selector").append("<div class='form_row result'><b>"+answerData.result.name+"</b></div>");
+            self.result = answerData.result;
+            self.alternatives = answerData.alternatives;
+            self.element.trigger('selector:completed')
           }else{
             createQuestion(answerData, rowCount);
           }
         });
       };
 
-      data = JSON.parse(jsonConfig);
+      try {
+        data = JSON.parse(jsonConfig);
+      } catch (e) {
+        throw("Error parsing json config for Question Selector: " + e);
+        return;
+      }
 
-      $('main').html("<form id='question_selector'></form>");
-      createQuestion(data, 0)
-
+      container.html(self.element);
+      createQuestion(data, 0);
       e.preventDefault();
     });
 
   }
 }());
-
