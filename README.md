@@ -11,7 +11,6 @@ To create a question selector on your page:
 
 #####Arguments:
 - `jsonConfig`: a json object containing a the questions, answers and results. The structure of this file can be found [here](#json-config)
-- `triggerElement`: a jquery object containing the element which will be clicked on to open the QuestionSelector
 - `options` a object containing optional configuration values:
   + *container*: a jquery object containing the element which will contain the QuestionSelector. Defaults to 'main', or if there is no 'main' element then uses 'body'
 
