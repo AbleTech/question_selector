@@ -45,6 +45,8 @@
     };
 
     var onAnswerChange = function(event){
+      self.element.trigger('selector:changed');
+
       answerData = $(event.target).data('answer-data');
       rowCount = $('.question').length;
 
