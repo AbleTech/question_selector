@@ -1,12 +1,35 @@
 # QuestionSelector
 
-A javascript plugin to read a JSON file and guide a user through a number of questions & answers to get a result
+A javascript plugin to read a JSON file and guide a user through a number of questions & answers to get a result.
 
-### Setup
+### Requirements
+
+- *bower* - if you don't have bower installed follow their installation instructions [here](http://bower.io/).
+
+### Installation
+
+Add the following line to your bower.json
+```
+"dependencies": {
+  "question_selector": "git@github.com:Kiwibank/question_selector.git"
+}
+```
+
+and then run
+
+```bash
+$ bower install
+```
+
+### Usage
+
+####Setup
+
+Include the question_selector.js and question_selector.scss files to make them accessable within your project.
 
 To create a question selector on your page:
 ```javascript
-  var selector = new QuestionSelector(jsonConfig, triggerElement, options);
+  var selector = new QuestionSelector(jsonConfig, options);
 ```
 
 #####Arguments:
@@ -14,7 +37,7 @@ To create a question selector on your page:
 - `options` a object containing optional configuration values:
   + *container*: a jquery object containing the element which will contain the QuestionSelector. Defaults to 'main', or if there is no 'main' element then uses 'body'
 
-####Events:
+####Events
 You can then bind to the selector's events, access the results and use them as required
 
 ```javascript
@@ -26,15 +49,15 @@ You can then bind to the selector's events, access the results and use them as r
 ```
 
 #####Available Events:
-- `selector:started`: triggered when the selector has been setup and displayed the first question
-- `selector:changed`: triggered everytime a user clicks on an answer
-- `selector:completed`: triggered when the user has selecter a answer which has a result
+- `selector:started`: triggered when the selector has been setup and displayed the first question.
+- `selector:changed`: triggered everytime a user clicks on an answer.
+- `selector:completed`: triggered when the user has selecter a answer which has a result.
 
 #####Available Fields:
-- `result`: The result of the last selected question. Null if the question has more nested questions.
-- `alternatives`: The list of alternative strings associated with the current result. null if the question has more nested questions or if a list of alternatives was not provided
+- `result`: The result of the last selected question. `null` if the question has more nested questions.
+- `alternatives`: The list of alternative strings associated with the current result. `null` if the question has more nested questions or if a list of alternatives was not provided.
 
-###<a name="json-config"></a>JSON config file
+####<a name="json-config"></a>JSON config file
 
 - *question*: a string of the question to be displayed
 - *answers*: a list of the answers to be displayed
@@ -47,7 +70,7 @@ You can then bind to the selector's events, access the results and use them as r
 
 Any number of questions can be nested within each answer.
 
-Note that an answer attribute should be constructed of either a
+Note that an answer attribute should be constructed to match the structure of either:
 ```
 {
   name: ...,
@@ -64,10 +87,8 @@ or
   (alternatives: [...])
 }
 ```
-but never both.
 
-
-####*Example JSON config file:*
+#####*Example JSON config file:*
 
 ```javascript
 {
