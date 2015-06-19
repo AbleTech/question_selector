@@ -1,6 +1,6 @@
 # QuestionSelector
 
-A javascript plugin to read a JSON file and guide a user through a number of questions & answers to get a result.
+A javascript widget to guide a user through a number of questions & answers to get a result, based off a JSON config file.
 
 ### Requirements
 

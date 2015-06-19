@@ -50,7 +50,7 @@
 
       if((answerData.questionIndex + 1) < rowCount){
         //We are selecting a question with an answer already
-        //remove all rows after this
+        //remove existing questions after this
         $(this).closest('.question').nextAll('.question').remove()
         rowCount = $('.question').length;
       }
