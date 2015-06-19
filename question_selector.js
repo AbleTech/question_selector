@@ -3,7 +3,7 @@
   this.QuestionSelector = function(jsonConfig, options) {
     this.result = null;
     this.alternatives = null;
-    this.element = $("<div id='question_selector'>")
+    this.element = $("<div class='question_selector'>")
 
     if (typeof(options)==='undefined') options = {};
 
@@ -27,7 +27,7 @@
 
     var createQuestion = function(data, index){
       questionId = "question_"+index;
-      $("#question_selector").append("<div id="+questionId+" class='question'><label>"+data.question+"</label><div class='field'><ul class='button_selection'></ul></div></div>");
+      self.element.append("<div id="+questionId+" class='question'><label>"+data.question+"</label><div class='answer'><ul class='button_selection'></ul></div></div>");
 
       for (var i = 0; i < data.answers.length; i++) {
         answer = data.answers[i];
@@ -38,15 +38,13 @@
 
     var createAnswer = function(questionId, answer, index){
       answerId = questionId + "_answer_" + index;
-      $("#question_selector #" + questionId + " ul.button_selection").append("<li><input type='radio' id="+answerId+" name='"+questionId+"_answer'><label for="+answerId+">"+answer.name+"</label></li>");
+      self.element.find("#" + questionId + " ul.button_selection").append("<li><input type='radio' id="+answerId+" name='"+questionId+"_answer'><label for="+answerId+">"+answer.name+"</label></li>");
 
       $('#' + answerId).data('answer-data', answer);
       $('#' + answerId).change(onAnswerChange);
     };
 
     var onAnswerChange = function(event){
-      self.element.trigger('selector:changed');
-
       answerData = $(event.target).data('answer-data');
       rowCount = $('.question').length;
 
@@ -60,9 +58,11 @@
       if('result' in answerData){
         self.result = answerData.result;
         self.alternatives = answerData.alternatives;
+        self.element.trigger('selector:changed');
         self.element.trigger('selector:completed')
       }else{
         createQuestion(answerData, rowCount);
+        self.element.trigger('selector:changed');
       }
     };
 

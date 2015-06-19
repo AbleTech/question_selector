@@ -55,6 +55,7 @@ You can then bind to the selector's events, access the results and use them as r
 #####Available Fields:
 - `result`: The result of the last selected question. `null` if the question has more nested questions.
 - `alternatives`: The list of alternative strings associated with the current result. `null` if the question has more nested questions or if a list of alternatives was not provided.
+- 'element': the outermost div containing the question_selector
 
 ####<a name="json-config"></a>JSON config file
 
