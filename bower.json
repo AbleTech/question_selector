@@ -1,6 +1,6 @@
 {
   "name": "question_selector",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "authors": [
     "Dawn Richardson <dawn.richardson@abletech.co.nz>"
   ],
@@ -20,10 +20,8 @@
   "homepage": "https://github.com/Kiwibank/question_selector",
   "ignore": [
     "**/.*",
-    "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    "test"
   ],
   "dependencies": {
     "jquery": "~2.1.4"
